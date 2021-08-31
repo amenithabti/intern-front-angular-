@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthenticationService {
+  
 
   headers = new HttpHeaders().set('content-type', 'application/json').set('Access-Control-Allow-Origin', '*');
   BaseURI = 'https://localhost:44316/';
