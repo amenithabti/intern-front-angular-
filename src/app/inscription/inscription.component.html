@@ -9,8 +9,6 @@
     <title>Sing Up</title>
 </head>
 <body>
-    
-
     <section>
      <div class="image-container">
             <img src="../../assets/Capture.PNG">
@@ -18,7 +16,7 @@
         <div class="form-container">
            <div class="form">
              <h2>  Create your Account by Filling Up This form!</h2>      
-              <form [formGroup]="service.formModel" autocomplete="off">
+            <form [formGroup]="service.formModel" autocomplete="off">
                 <div class="input">
                     <span>FullName</span>
                     <input  type="text" name="FullName" formControlName="FullName">
@@ -44,8 +42,7 @@
                   <div class="input">
                       <input type="submit" value="create account" (click)="create_account()"  [disabled]="!service.formModel.valid">
                   </div>
-                 
-              </form>
+            </form>
     </div>
         </div> 
     </section>

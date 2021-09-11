@@ -13,12 +13,33 @@ export class InscriptionComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.formModel.reset();
-
   }
-
   create_account(){
-    this.service.register();
+    this.service.register('user').subscribe(result=>{
+      this.service.authenticate();
+    })
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 //this.service.register().subscribe(
 
   //(res : any) =>{
