@@ -1,0 +1,22 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../core/services/authentication.service';
+
+@Component({
+  selector: 'app-formateur',
+  templateUrl: './formateur.component.html',
+  styleUrls: ['./formateur.component.scss']
+})
+export class FormateurComponent implements OnInit {
+
+  constructor(private router:Router , public service: AuthenticationService) { }
+
+  ngOnInit(): void {
+  }
+
+  add_formateur(){
+    this.service.add_formateur().subscribe(result=>{
+            this.service.authenticate();
+    })
+  }
+}

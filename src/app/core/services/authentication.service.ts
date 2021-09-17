@@ -18,10 +18,15 @@ export class AuthenticationService {
      });
 
   formModelLogin= this.fb.group({
-      username : ['',Validators.required],
-      password : ['',[Validators.required,Validators.minLength(4)]],
-       });
-
+    username : ['',Validators.required],
+    password : ['',[Validators.required,Validators.minLength(4)]],
+    });
+ formModelFormateur= this.fb.group({
+   fullname : [''],
+   email : ['',Validators.required],
+   phonenumber : [''],
+   nationality : [''],
+ });
   constructor(private router:Router , private http:HttpClient , private fb:FormBuilder )  { }
   comparePasswords( fb:FormGroup){
 
@@ -50,11 +55,33 @@ export class AuthenticationService {
     let params = new HttpParams()
       .set('username',this.formModelLogin.value.username)
       .set('password', this.formModelLogin.value.password);
-     return this.http.post(this.BaseURI+ 'home/login', params, {'headers': this.headers});
+      debugger;
+     return this.http.post(this.BaseURI+ 'home/login', {
+      params: {
+        username: 'this.formModelLogin.value.username',
+        password: 'this.formModelLogin.value.password'
+      },
+      observe: 'response'
+    }, {'headers': this.headers});
   }
 
+  add_formateur(): Observable<any>{
+      var body = JSON.stringify({
+        fullname : this.formModelFormateur.value.fullname,
+        email : this.formModelFormateur.value.email,
+        phonenumber : this.formModelFormateur.value.phonenumber,
+        nationality : this.formModelFormateur.value.nationality,
+        });
+      console.log(body);
+      return this.http.post(this.BaseURI+ 'formateur/addTrainer', body, {'headers': this.headers});
+  }
    authenticate(){
      localStorage.setItem('isAuthenticated' , 'true' );
      this.router.navigate(['home']);
    }
+   setAdmin(){
+     localStorage.setItem('isAdmin' , 'true');
+     this.router.navigate(['dashboard']);
+  }
+
 }

@@ -22,25 +22,25 @@
                     <input  type="text" name="FullName" formControlName="FullName">
                 </div>
                   <div class="input">
-                      <span>username</span>
+                      <span>Username</span>
                       <input type="text" name="username" formControlName="username">
                       <label class="text-danger" *ngIf="service.formModel?.get('username')?.touched && service.formModel?.get('username')?.errors?.required">This field is mandatory.</label>
                   </div>
                   <div class="input">
-                      <span>password</span>
+                      <span>Password</span>
                       <input type="password" name="password" formControlName="password">
                       <label class="text-danger" *ngIf="service.formModel?.get('password')?.touched && service.formModel?.get('password')?.errors?.required">This field is mandatory.</label>
                       <label class="text-danger" *ngIf="service.formModel?.get('password')?.touched && service.formModel?.get('password')?.errors?.minlength">Minimum 4 caracters </label>
                  
                     </div>
                   <div class="input">
-                    <span> confirm password</span>
+                    <span> Confirm Password</span>
                     <input type="password" name="confirmpassword" formControlName="confirmpassword">
-                    <label class="text-danger" *ngIf="service.formModel?.get('confirmPassword')?.touched && service.formModel?.get('confirmPassword')?.errors?.required">This field is mandatory.</label>
+                    <label class="text-danger" *ngIf="service.formModel?.get('confirmpassword')?.touched && service.formModel?.get('confirmpassword')?.errors?.required">This field is mandatory.</label>
                     <!--<label class="text-danger" *ngIf="service.formModel.get('confirmPassword').touched && service.formModel.get('confirmPassword').errors?.passwordMismatch">confirm password does not match</label> -->
                 </div>
                   <div class="input">
-                      <input type="submit" value="create account" (click)="create_account()"  [disabled]="!service.formModel.valid">
+                      <input type="submit" value="Create Account" (click)="create_account()"  [disabled]="!service.formModel.valid">
                   </div>
             </form>
     </div>

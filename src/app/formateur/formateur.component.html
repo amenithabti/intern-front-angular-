@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Ajouter Formateur</title>
+</head>
+<body>
+    <section>
+     <div class="image-container">
+        <img src="../../assets/formateur.PNG">
+      </div>
+        <div class="form-container">
+           <div class="form">
+            <form  [formGroup]="service.formModelFormateur"autocomplete="off">  
+                <h2>Add Trainer</h2>    
+                <div class="input">
+                      <span>Fullname</span>
+                      <input type="text" name="fullname" formControlName="fullname">
+                </div>
+                <div class="input">
+                    <span>Email</span>
+                    <input type="text" name="email" formControlName="email">
+                </div>
+                <div class="input">
+                    <span>Phone number</span>
+                    <input type="text" name="phonenumber" formControlName="phonenumber">
+                </div>      
+                <div class="input">
+                        <span>Nationality</span><br />
+                        <select name="pays" id="pays">
+                            <option value="france">Tunisian</option>
+                            <option value="canada">Canadian</option>
+                            <option value="italie">Italian</option>
+                            <option value="etats-unis">American</option>
+                            <option value="chine">Chinese</option>
+                        </select>
+                 </div>
+                <div class="input">
+                      <input type="submit" value="Add Trainer" (click)="add_formateur()">
+                </div>
+            </form>
+         </div>
+        </div> 
+    </section>
+</body>
+</html>

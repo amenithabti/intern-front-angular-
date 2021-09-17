@@ -15,6 +15,8 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { ReactiveFormsModule} from "@angular/forms";
 import { HttpClientModule} from '@angular/common/http';
 import { AuthenticationService } from './core/services/authentication.service';
+import { FormateurComponent } from './formateur/formateur.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -25,6 +27,8 @@ import { AuthenticationService } from './core/services/authentication.service';
     HomeComponent,
     NotFoundComponent,
     AdminHomeComponent,
+    FormateurComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,10 +36,7 @@ import { AuthenticationService } from './core/services/authentication.service';
     NgbModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule,ReactiveFormsModule
-    
- 
-   
+    HttpClientModule,ReactiveFormsModule,    
   ],
   providers: [AuthenticationService],
   bootstrap: [AppComponent]

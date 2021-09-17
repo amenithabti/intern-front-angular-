@@ -18,6 +18,7 @@ constructor(private router:Router,  private route: ActivatedRoute,  public servi
   
   connect(){
     this.service.login().subscribe(result =>{
+      console.log(result);
       this.service.authenticate();
     })
     }

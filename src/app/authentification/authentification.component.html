@@ -10,7 +10,6 @@
 </head>
 <body>
     
-
     <section>
         <div class="image-container">
             <img src="../../assets/Capture.PNG">
@@ -20,12 +19,12 @@
              <h2>  Sign In</h2>      
               <form [formGroup]="service.formModelLogin" autocomplete="off" >
                   <div class="input">
-                      <span>username</span>
+                      <span>Username</span>
                       <input type="username" required  name="username" formControlName="username">
                       <label class="text-danger" *ngIf="service.formModelLogin?.get('username')?.touched && service.formModelLogin?.get('username')?.errors?.required">This field is mandatory.</label>
                     </div>
                   <div class="input">
-                      <span>password</span>
+                      <span>Password</span>
                     <input type="password" required  name="password" formControlName="password">
                     <label class="text-danger" *ngIf="service.formModelLogin?.get('password')?.touched && service.formModelLogin?.get('password')?.errors?.required">This field is mandatory.</label>
                   </div>
@@ -36,7 +35,7 @@
                       <input type="submit" value="Login" (click)="connect()" [disabled]="!service.formModelLogin.valid"> 
                    </div>
                   <div class="input">
-                      <p>Don't have an account ? <a href="https://localhost:4200/inscription"><strong> Sign Up  !</strong> </a></p>
+                      <p>Don't have an account ? <a href="http://localhost:4200/inscription"><strong> Sign Up  !</strong> </a></p>
                   </div>
               </form>
     </div>
