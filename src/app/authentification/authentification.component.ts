@@ -20,7 +20,8 @@ constructor(private router:Router,  private route: ActivatedRoute,  public servi
     this.service.login().subscribe(result =>{
       console.log(result);
       this.service.authenticate();
-    })
+      this.service.setAdmin();
+       })
     }
     
 
