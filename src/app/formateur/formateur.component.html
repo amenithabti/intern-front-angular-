@@ -11,7 +11,7 @@
      <div class="image-container">
         <img src="../../assets/formateur.PNG">
       </div>
-        <div class="form-container">
+        <div *ngIf="!isNextStep" class="form-container">
            <div class="form">
             <form  [formGroup]="serviceFormateur.formModelFormateur"autocomplete="off">  
                 <h2>Add Trainer</h2>    
@@ -22,6 +22,8 @@
                 <div class="input">
                     <span>Email</span>
                     <input type="text" name="email" formControlName="email">
+                    <label class="text-danger" *ngIf="serviceFormateur.formModelFormateur?.get('email')?.touched && serviceFormateur.formModelFormateur?.get('email')?.errors?.required">This field is mandatory.</label>
+                    <label class="text-danger" *ngIf="serviceFormateur.formModelFormateur?.get('email')?.touched && serviceFormateur.formModelFormateur?.get('email')?.errors?.email">Email is not valid. </label>
                 </div>
                 <div class="input">
                     <span>Phone number</span>
@@ -29,20 +31,53 @@
                 </div>      
                 <div class="input">
                         <span>Nationality</span><br />
-                        <select name="pays" id="pays">
-                            <option value="france">Tunisian</option>
-                            <option value="canada">Canadian</option>
-                            <option value="italie">Italian</option>
-                            <option value="etats-unis">American</option>
-                            <option value="chine">Chinese</option>
+                        <select formControlName="nationality" name="pays" id="pays">
+                            <option value="Tunisian">Tunisian</option>
+                            <option value="Canadian">Canadian</option>
+                            <option value="Italian">Italian</option>
+                            <option value="American">American</option>
+                            <option value="Chinese">Chinese</option>
                         </select>
                  </div>
                 <div class="input">
-                      <input type="submit" value="Add Trainer" (click)="add_formateur()">
+                      <!-- <input type="submit" value="Next" (click)="add_formateur()"> -->
+                      <input type="submit" value="Next" (click)="selectNewFormateur()" [disabled]="!serviceFormateur.formModelFormateur.valid">
                 </div>
             </form>
          </div>
-        </div> 
+        </div>
+        <div *ngIf="isNextStep" class="form-container">
+            <div class="form">
+              <h2>  Create your Account by Filling Up This form!</h2>      
+             <form [formGroup]="service.formModel" autocomplete="off">
+                 <div class="input">
+                     <span>FullName</span>
+                     <input  type="text" name="FullName" formControlName="FullName">
+                 </div>
+                   <div class="input">
+                       <span>Username</span>
+                       <input type="text" name="username" formControlName="username">
+                       <label class="text-danger" *ngIf="service.formModel?.get('username')?.touched && service.formModel?.get('username')?.errors?.required">This field is mandatory.</label>
+                   </div>
+                   <div class="input">
+                       <span>Password</span>
+                       <input type="password" name="password" formControlName="password">
+                       <label class="text-danger" *ngIf="service.formModel?.get('password')?.touched && service.formModel?.get('password')?.errors?.required">This field is mandatory.</label>
+                       <label class="text-danger" *ngIf="service.formModel?.get('password')?.touched && service.formModel?.get('password')?.errors?.minlength">Minimum 4 caracters </label>
+                  
+                     </div>
+                   <div class="input">
+                     <span> Confirm Password</span>
+                     <input type="password" name="confirmpassword" formControlName="confirmpassword">
+                     <label class="text-danger" *ngIf="service.formModel?.get('confirmpassword')?.touched && service.formModel?.get('confirmpassword')?.errors?.required">This field is mandatory.</label>
+                     <!--<label class="text-danger" *ngIf="service.formModel.get('confirmPassword').touched && service.formModel.get('confirmPassword').errors?.passwordMismatch">confirm password does not match</label> -->
+                 </div>
+                   <div class="input">
+                       <input type="submit" value="Add Trainer" (click)="create_account()" [disabled]="!service.formModel.valid">
+                   </div>
+             </form>
+           </div>
+         </div>
     </section>
 </body>
 </html>

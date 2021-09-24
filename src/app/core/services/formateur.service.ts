@@ -11,20 +11,13 @@ export class FormateurService {
   BaseURI = 'https://localhost:44316/';
   formModelFormateur= this.fb.group({
     fullname : [''],
-    email : ['',Validators.required],
+    email : ['',[Validators.required, Validators.email]],
     phonenumber : [''],
     nationality : [''],
   });
 
   constructor(private fb:FormBuilder , private http:HttpClient) { }
-  add_formateur(): Observable<any>{
-    var body = JSON.stringify({
-      fullname : this.formModelFormateur.value.fullname,
-      email : this.formModelFormateur.value.email,
-      phonenumber : this.formModelFormateur.value.phonenumber,
-      nationality : this.formModelFormateur.value.nationality,
-      });
-    console.log(body);
-    return this.http.post(this.BaseURI+ 'formateur/addTrainer', body, {'headers': this.headers});
+  add_formateur(formateur: any): Observable<any>{
+    return this.http.post(this.BaseURI+ 'formateur/addTrainer', formateur, {'headers': this.headers});
 }
 }

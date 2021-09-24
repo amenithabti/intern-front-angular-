@@ -62,4 +62,11 @@ export class AuthenticationService {
      this.router.navigate(['dashboard']);
   }
 
+  logout(): void{
+
+    localStorage.clear();
+
+     this.router.navigate(['authentication']);
+  }
+
 }

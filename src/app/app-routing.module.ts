@@ -10,7 +10,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
-  { path: 'authentification', component: AuthentificationComponent},
+  { path: 'authentication', component: AuthentificationComponent},
   { path: 'inscription', component: InscriptionComponent},
   { path: 'formateur', component: FormateurComponent},
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthenticationGuard,AdminGuard]},
